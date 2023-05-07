@@ -329,7 +329,7 @@ function initGame() {
 
 
 startGameBtn.addEventListener("click", () => {
-    // gameOver.style.display = "none";
+    gameOver.style.display = "none";
     initGame();
 });
 
