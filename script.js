@@ -29,7 +29,7 @@ let gameWidth = (canvas.width / squareSize);
 let gameHeight = canvas.height / squareSize;
 
 scoreLast.innerHTML = latestScore;
-maxScore.innerHTML = maxScore;
+scoreMax.innerHTML = maxScore;
 
 class TetrisGame{
     constructor(n) {
