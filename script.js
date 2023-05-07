@@ -294,7 +294,7 @@ function animate(time = 0) {
         scoreGame.innerHTML = score; 
         cancelAnimationFrame(animateID);
         // setTimeout(5000);
-        window.location='MenuPage.html'
+        window.location='index.html'
 
     }
 
@@ -329,7 +329,7 @@ function initGame() {
 
 
 startGameBtn.addEventListener("click", () => {
-    gameOver.style.display = "none";
+    // gameOver.style.display = "none";
     initGame();
 });
 
