@@ -1,6 +1,6 @@
-const scoreGame = document.getElementById("score-num");
-var scoreLast= document.querySelectorAll(".score-last");
-var scoreMax = document.querySelectorAll(".score-max");
+let scoreGame = document.getElementById('score-num');
+let scoreMax = document.getElementById('score-max');
+let scoreLast = document.getElementById('score-last');
 
 const gameOver = document.querySelector(".game-over");
 const startGameBtn = document.querySelector(".start-game-btn");
@@ -20,16 +20,14 @@ let dropCounter;
 let dropInterval;
 
 let rowsFill;
-let latestScore = localStorage.getItem("latestScore");
+let lScore = localStorage.getItem("latestScore") || 0;
 let score;
-let maxScore = localStorage.getItem("maxScore");
+let mScore = localStorage.getItem("maxScore") || 0;
 
 let squareSize = 20;
 let gameWidth = (canvas.width / squareSize);
 let gameHeight = canvas.height / squareSize;
 
-scoreLast.innerHTML = latestScore;
-scoreMax.innerHTML = maxScore;
 
 class TetrisGame{
     constructor(n) {
@@ -77,8 +75,6 @@ class TetrisGame{
                 [0, 0, 0],
             ];
         }
-        // console.log(this.matrix);
-        /// Rows === Cols
         this.len = this.matrix.length;
         let rand = Math.floor(Math.random() * 360);
         this.color = `hsl(${rand} , 50% , 50%)`;
@@ -260,9 +256,14 @@ class Matrix{
             const row = this.grid.splice(i, 1)[0].fill(0);
             this.grid.unshift(row);
             ++i;
+            console.log(score);
             score += rowsFill;
             rowsFill += 500;
-            scoreGame.innerHTML = score; 
+            // console.log(score);
+            scoreGame.innerHTML = score;
+            // console.log(scoreGame);
+            // scoreLast.innerHTML = lScore;
+            // scoreMax.innerHTML = mScore; 
         }
     }
 }
@@ -283,26 +284,21 @@ function animate(time = 0) {
     animateID = requestAnimationFrame(animate);
     context.clearRect(0, 0, canvas.width, canvas.height);
     game.draw();
-    
+
     if (game.player.position.y === 0 && game.collision(game.player.shape.matrix , game.player.position)) {
         gameOverSound.play();
-        localStorage.setItem("latestScore", score)
-        if(maxScore < score){
-        localStorage.setItem("maxScore", score)
+        lScore = score;
+        localStorage.setItem("latestScore", lScore)
+        if(mScore < score){
+            mScore = score;
+        localStorage.setItem("maxScore", mScore)
         }
+        console.log(mScore);
         console.log("Game Over");
-        scoreGame.innerHTML = score; 
         cancelAnimationFrame(animateID);
-        // setTimeout(5000);
-        window.location='index.html'
-
+        window.location = 'index.html';
     }
 
-    scoreGame.innerHTML = score;
-    localStorage.setItem("latestScore", score)
-    if(maxScore < scoreGame){
-        localStorage.setItem("maxScore", scoreGame)
-    }
 }
 
 function createAudio(path) {
@@ -327,9 +323,12 @@ function initGame() {
 }
 
 
+scoreLast.innerHTML = lScore;
+scoreMax.innerHTML = mScore;
 
 startGameBtn.addEventListener("click", () => {
     gameOver.style.display = "none";
+ 
     initGame();
 });
 

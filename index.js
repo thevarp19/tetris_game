@@ -1,35 +1,19 @@
-const scoreLast = document.querySelectorAll(".score-number");
-const scoreMax = document.querySelectorAll(".score-max");
+const scoreMax = document.getElementById(".score-max");
+const scoreLast = document.getElementById("score-last");
 const gameOver = document.querySelector(".game-over");
 const startGameBtn = document.querySelector(".start-game-btn");
-const canvas = document.querySelector(".canvas");
 
-const searchParams = new URLSearchParams(window.location.search);
-const button_start = searchParams.get("button_start");
 
-canvas.width = 300;
-canvas.height = 400;
-
-const context = canvas.getContext("2d");
-
-const backgroundSound = createAudio("audio/Background.mp3");
-const dropSound = createAudio("audio/Drop.wav");
-const gameOverSound = createAudio("audio/Gameover.wav");
-const lineClear = createAudio("audio/Lineclear.wav");
-
-let dropCounter;
-let dropInterval;
-
-let rowsFill;
-let latestScore = localStorage.getItem("latestScore");
+var latestScore = localStorage.getItem("latestScore");
 let score;
-let maxScore = localStorage.getItem("maxScore");
+var maxScore = localStorage.getItem("maxScore");
 
-scoreEl.innerHTML = latestScore;
-scoreEl1.innerHTML = maxScore;
+
 
 
 function createAudio(path) {
+    scoreLast.innerHTML = latestScore;
+    scoreMax.innerHTML = maxScore;
     const audio = new Audio();
     audio.src = path;
     return audio;
