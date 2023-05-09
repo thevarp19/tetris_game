@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    overflow-y: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(108, 231, 184);
+}
+
+.game{
+    width: 500px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 80px;
+}
+
+
+.dashboard h1{
+    font-size: 60px;
+}
+
+.dashboard .score{
+    margin: 40px 0 30px;
+}
+
+.controls .content{
+    padding: 20px;
+    border: 5px solid  rgb(240, 107, 189);
+    background-color: aqua;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls h2{
+    margin-bottom: 20px;
+}
+
+.controls .content div{
+
+    margin: 5px 0;
+}
+
+.game-content{
+    padding: 30px;
+    width: 50%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.content{
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.game-content button {
+    width: 70%;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.game-content button:hover {
+    background-color: #111;
+}
+    </style>
+    <title>Tetris Game</title>
+</head>
+<body>
+
+    <img src="image_processing20200402-4238-102l7hz.gif" style="z-index: -1;;position: absolute; width: 100%; height: 100%;">
+    <h1 style="display: flex; justify-content: center;">Tetris</h1>
+    <div class="game-content">
+
+    <div class="content">
+
+                <button class="start-game-btn" style="margin-top: 15px;" onclick="window.location='GamePage.html';">Game Play</button>
+        <div class="dashboard">
+            <div class="controls">
+                <h2 style="display: flex; justify-content: center;margin-bottom: 25px; margin-top: 25px;">Controls</h2>
+                <div class="content">
+                    <div>← : Move Left</div>
+                    <div>→ : Move Right</div>
+                    <div>↓ : Move Down</div>
+                    <div>↑ : Rotate Right</div>
+                    <div>CTRL : Rotate Left</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
