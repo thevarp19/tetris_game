@@ -4,11 +4,11 @@
 Написал на HTML5, CSS3, JavaScript!
 
 # Как запускать? 
-  Скачиваете zip и открываете MenuPage.html 
+  Я сделал деплой на Vercel. Нажимайте на ссылку и играйте!
   
   ![image](https://user-images.githubusercontent.com/119878275/236693762-eeb8d355-484d-4b97-b559-7908eb5603ae.png)
   
-  Нажимаем Game Play. 
+  Page Game Play. 
   
   ![image](https://user-images.githubusercontent.com/119878275/236693782-cf9112ab-6222-4c3c-a150-e1b4ffb7abd9.png)
   
